@@ -63,7 +63,8 @@ INSERT INTO Employee VALUES
 
 
 Part C – TCL Practical:
---1.Increase Rahul's salary by ₹5000. Do not commit immediately. Verify the result.Rollback
+
+1.Increase Rahul's salary by ₹5000. Do not commit immediately. Verify the result.Rollback
 the transaction. What is Rahul's final salary?
 START TRANSACTION;
 UPDATE EMPLOYEE SET SALARY = SALARY+5000 WHERE EMPID = 101; 
@@ -71,13 +72,13 @@ SELECT * FROM EMPLOYEE;
 ROLLBACK;
 SELECT * FROM EMPLOYEE;
 
---2.Increase every employees salary by 10%. Commit the transaction. Verify the result?
+2.Increase every employees salary by 10%. Commit the transaction. Verify the result?
 START TRANSACTION;
 UPDATE EMPLOYEE SET SALARY = SALARY * 1.10; 
 COMMIT;
 SELECT * FROM EMPLOYEE;
 
---3.Increase Rahul salary by ₹3000. Create SAVEPOINT sp1. Increase Priya's salary by
+3.Increase Rahul salary by ₹3000. Create SAVEPOINT sp1. Increase Priya's salary by
 ₹5000. Rollback to sp1. Which employee's salary is rolled back?
 START TRANSACTION;
 UPDATE EMPLOYEE SET SALARY = SALARY+3000 WHERE EMPID = 101; 
@@ -86,13 +87,13 @@ UPDATE EMPLOYEE SET SALARY = SALARY+5000 WHERE EMPID = 102;
 ROLLBACK;
 SELECT * FROM EMPLOYEE;
 
---4.DELETE HR employees. Rollback. How many HR employees remain?
+4.DELETE HR employees. Rollback. How many HR employees remain?
 START TRANSACTION;
 DELETE FROM EMPLOYEE WHERE DEPARTMENT = 'HR';
 ROLLBACK;
 SELECT * FROM EMPLOYEE;
 
---5. DELETE Finance employees. COMMIT. Then ROLLBACK. Will the Finance employee
+5. DELETE Finance employees. COMMIT. Then ROLLBACK. Will the Finance employee
 return? Explain.
 START TRANSACTION;
 DELETE FROM EMPLOYEE WHERE DEPARTMENT = 'FINANCE';
